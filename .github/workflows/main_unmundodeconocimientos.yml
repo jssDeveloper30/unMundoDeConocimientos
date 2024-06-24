@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy JAR app to Azure Web App - unmundodeconocimientos
+name: Build and deploy WAR app to Azure Web App - unmundodeconocimientos
 
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+          path: '${{ github.workspace }}/target/*.war'
 
   deploy:
     runs-on: windows-latest
@@ -48,9 +48,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_20B3EFA1D64943848BDF33B835230071 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_3690DEBFC4604A8DA2717A382BC6CFD0 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_DFA0739B15504E96AA3DD8F8A2D7C70A }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_427CACF8096046FE987483DC51D98909 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_E97C0BA238CB4CF9B0B9E96C9B269FC3 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_7B5861D25B62415FAD79B706C3297B13 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -58,5 +58,5 @@ jobs:
         with:
           app-name: 'unmundodeconocimientos'
           slot-name: 'Production'
-          package: '*.jar'
+          package: '*.war'
           
