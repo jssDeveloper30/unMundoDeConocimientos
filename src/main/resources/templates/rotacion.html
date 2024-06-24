@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Rotating Navigation</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+	<link th:href="@{/css/rotacion.css}" rel="stylesheet">
+</head>
+  <body>
+    <div class="container">
+      <div class="circle-container">
+        <div class="circle">
+          <button id="close">
+            <i class="fas fa-times"></i>
+          </button>
+          <button id="open">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="content">
+        <h1>Sobre nosotros</h1>
+        <small>Historia</small>
+        <p>
+          Somos un grupo de aprendices que llegaron al SENA con muchas ganas de aprender.
+          Formamos un excelente equipo y compartimos mucho durante este periodo de aprendizaje.
+          No solo adquirimos conocimientos técnicos, sino que también desarrollamos habilidades esenciales para el trabajo en equipo, como la comunicación efectiva, la colaboración y el respeto mutuo. Cada uno de nosotros aportó sus fortalezas y aprendió a apoyarse en las habilidades de los demás, creando un ambiente de aprendizaje enriquecedor y productivo.
+          Esta experiencia nos ha preparado para enfrentar futuros desafíos con confianza y determinación, sabiendo que juntos podemos lograr grandes cosas. Además, aprendimos a superar obstáculos y a adaptarnos a situaciones cambiantes, lo que nos ha hecho más resilientes y proactivos. La guía de nuestros instructores y el apoyo de nuestros compañeros fueron fundamentales para nuestro crecimiento personal y profesional.
+          En este tiempo, no solo nos convertimos en mejores profesionales, sino también en mejores personas. La camaradería y el espíritu de equipo que desarrollamos se han convertido en una parte integral de nuestra formación. Estamos orgullosos de lo que hemos logrado y agradecidos por las oportunidades que el SENA nos ha brindado. Con este bagaje de conocimientos y experiencias, estamos listos para contribuir positivamente al mundo laboral y seguir aprendiendo y creciendo en nuestras futuras carreras.
+        </p>
+        <h3>Un gran equipo</h3>
+        <img th:src="@{/images/sena.jpeg}" width="436" height="336" class="center">
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><i class="fas fa-home"></i><a th:href="@{/}"> Regresar</a></li>
+      </ul>
+    </nav>
+    <script th:src="@{/js/rotacion.js}"></script>
+  </body>
+</html>

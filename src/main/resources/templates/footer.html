@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:fragment="head">
+        <title>Layout</title>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+<!--         <link th:href="@{/css/footer.css}" rel="stylesheet"> -->
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    </head>
+    <body>
+        <footer th:fragment="footer" class="bg-secondary text-black mt-4 p-5">
+            <div class="container">
+                <div class="col">
+                    <p class="lead text-center">
+                        <span> All Right Reserved &copy;  <a href="https://www.google.com" class="link-dark" target="_blank"><i class="fa-brands fa-linkedin" ></i></a></span>  
+                        <span> <a href="https://www.google.com" class="link-dark" target="_blank"><i class="fa-brands fa-github" ></i></a></span>
+                    </p>
+                </div>
+            </div>        
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Biblioteca</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+	<link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}" />
+	<link th:href="@{/css/agregar.css}" rel="stylesheet">
+	<link th:href="@{/css/footer.css}" rel="stylesheet">
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+
+<body>
+ 	<header th:replace="~{header :: header}"></header>
+	<div class="container">
+	<br />
+	<h1>Prestamo Bibliotecario</h1>
+	<br />
+		<div class="row">
+			<div class="col-md-12">
+				<a th:href="@{/agregar}" class="btn btn-secondary">Crear Prestamo</a>
+				<div th:if="${prestamos != null and !prestamos.empty}">
+					<table class="table table-stryped">
+						<thead class="bg-dark text-white">
+							<tr>
+								<th>Isbn</th>
+								<th>Identificación Usuario</th>
+								<th>Tipo Usuario</th>
+								<th>Fecha Máxima Devolución</th>
+								<th>Editar</th>
+								<th>Eliminar</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="prestamoLibro : ${prestamos}">
+								<td th:text="${prestamoLibro.isbn}"></td>
+								<td th:text="${prestamoLibro.identificacionUsuario}"></td>
+								<td th:text="${prestamoLibro.tipoUsuario}"></td>
+								<td th:text="${prestamoLibro.fechaMaximaDevolucion}"></td>
+								<td> <a th:href="@{/editar/} + ${prestamoLibro.id}" class="btn btn-primary" role="button">Editar</a></td>
+								<td> <a th:href="@{/eliminar/} + ${prestamoLibro.id}" class="btn btn-danger" role="button">Eliminar</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div th:if="${prestamos == null or prestamos.empty}">
+				<br />
+					Aún no se han hecho prestamos
+				<br />
+
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</body>
+
+<footer th:replace="~{footer :: footer}"></footer>  
+
+</html>

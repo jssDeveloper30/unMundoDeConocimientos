@@ -1,0 +1,15 @@
+@charset "ISO-8859-1";
+        /* Establecer la misma anchura para todos los labels */
+        label {
+            width: 200px; /* Puedes ajustar este valor según sea necesario */
+            display: inline-block;
+        }
+
+        /* Alinear los inputs */
+        .form-group input {
+            width: calc(30% - 200px); /* Restar el ancho del label */
+            margin-left: 3px; /* Espacio entre el label y el input */
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+        

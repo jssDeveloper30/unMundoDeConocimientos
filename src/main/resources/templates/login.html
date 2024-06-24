@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Inicio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link th:href="@{/css/signindos.css}" rel="stylesheet">
+</head>
+<body>
+<section class="user-login section">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="block">
+					<!-- Image -->
+					<div class="image align-self-center"><img class="img-fluid"  th:src="@{/images/sign-up.jpg}" 
+							alt="desk-image"></div>
+					<!-- Content -->
+					<div class="content text-center">
+						<div class="logo">
+							<a href="prestamos.html"><img th:src="@{/images/logo}" alt=""></a>
+						</div>
+						<div class="title-text">
+							<h3>Inicia sesion con tu cuenta</h3>
+						</div>
+						<form th:action="@{/login}" method="post">
+							<!-- Username -->
+							<input class="form-control main" type="text" placeholder="Nombre de usuario" name="username">
+							<!-- Password -->
+							<input class="form-control main" type="password" placeholder="Contraseña" name="password">
+							<!-- Submit Button -->
+							<button type="submit" class="btn btn-main-sm">Iniciar sesion</button>
+						</form>
+						<div class="new-acount">
+							<a href="contact.html">¿Has olvidado tu contraseña?</a>
+							<p>¿Registra tu cuenta? <a href="sign-up.html">Registrate</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+</body>
+</html>

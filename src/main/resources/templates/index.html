@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Un mundo de conocimientos</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" th:href="@{/images/icono.svg}">
+	<link th:href="@{/css/estilo.css}" rel="stylesheet">
+	<link th:href="@{/css/font-awesome.min.css}" rel="stylesheet">
+	<link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}" />
+</head>
+
+<body>
+
+	<section id="fotoFondo"></section>
+
+	<div class="content-fluid">
+
+		<!--=====================================
+	CABEZOTE   
+	======================================-->
+		<header id="cabezote" class="row">
+
+			<figure id="logotipo" class="col-lg-4 col-md-3 col-sm-3 col-xs-12">
+				<a th:href="@{/index}">
+					<img th:src="@{/images/logo.svg}" alt="Logo">
+				</a>
+			</figure>
+
+			<div class="col-lg-4 col-md-2 col-sm-1 col-xs-0">
+
+				<br>
+
+			</div>
+			<nav class="col-lg-6 col-md-7 col-sm-8 col-xs-12">
+				<ul>
+						<a id="btnAgregar" class="col-lg-2 col-md-4 col-sm-2 col-xs-12" th:href="@{/agregar}">Crear Prestamo</a>
+						<a id="btnListadoLibros" class="col-lg-2 col-md-4 col-sm-2 col-xs-12" th:href="@{/agregarlibro}">Agregar Libro</a>
+						<a id="btnListadoLibros" class="col-lg-2 col-md-4 col-sm-2 col-xs-12" th:href="@{/listadoprestamos}">Listado Prestamos</a>
+						<a id="btnListadoLibros" class="col-lg-2 col-md-4 col-sm-2 col-xs-12" th:href="@{/listadolibrosdos}">Listado Libros</a>
+					<button id="btnSalir" class="col-lg-2 col-md-4 col-sm-2 col-xs-12">
+						<form method="POST" th:action="@{/logout}">
+							<a href="#" onclick="this.parentNode.submit();" class="nav-link">
+								<i class="fas fa-user-times"></i> Salir
+							</a>
+						</form>
+					</button>
+				</ul>
+			</nav>
+		</header>
+		<!--=====================================
+	SLIDESHOW  
+	======================================-->
+
+		<div id="slide" class="row">
+
+			<ul>
+
+				<li>
+					<img th:src="@{/images/slide/slide01.jpg}">
+
+					<div class="textoSlide">
+						<h1><a href="https://udea.edu.co/wps/portal/udea/web/inicio/sistema-bibliotecas">Biblioteca Carlos Gaviria Díaz</a></h1>
+						<h3>Epicentro del Saber y la Cultura en la Universidad de Antioquia</h3>
+					</div>
+				</li>
+
+				<li>
+					
+					<img th:src="@{/images/slide/slide02.jpg}">
+					<div class="textoSlide">
+						<h1><a href="https://bibliotecas.unal.edu.co/">Alfonso Borrero Cabal, S.J.</a></h1>
+						<h3>Faro del Conocimiento y la Investigación en América Latina</h3>
+					</div>
+				</li>
+
+				<li>
+					<img th:src="@{/images/slide/slide03.jpg}">
+					<div class="textoSlide">
+						<h1><a href="https://investigacion.udemedellin.edu.co/">Biblioteca Héctor Ospina Botero</a></h1>
+						<h3>Pilar del Conocimiento y la Innovación en la Universidad de Medellín</h3>
+					</div>
+				</li>
+
+				<li>
+					<img th:src="@{/images/slide/slide04.jpg}">
+					<div class="textoSlide">
+						<h1><a href="https://www.upb.edu.co/ss/Satellite?c=Page&cid=1464098407365&pagename=UPB_PortalPrincipal%2FPage%2FGRID_001">Biblioteca Central Mons. Darío Múnera Vélez</a></h1>
+						<h3>Centro de Excelencia Académica en la Universidad Pontificia Bolivariana</h3>
+					</div>
+				</li>
+
+			</ul>
+
+			<ol id="paginacion">
+
+				<li item="1"><span class="fa fa-circle"></span></li>
+				<li item="2"><span class="fa fa-circle"></span></li>
+				<li item="3"><span class="fa fa-circle"></span></li>
+				<li item="4"><span class="fa fa-circle"></span></li>
+
+			</ol>
+
+			<div class="flechas" id="retroceder"><span class="fa fa-chevron-left"></span></div>
+			<div class="flechas" id="avanzar"><span class="fa fa-chevron-right"></span></div>
+
+		</div>
+
+		<!--=====================================
+	GALERIA 
+	======================================-->
+
+		<h1 id="inicioGaleria" class="row titulos">
+
+			<hr>
+
+			Galeriá de libros
+
+			<hr>
+
+		</h1>
+
+		<div id="galeria" class="row">
+
+			<ul>
+				<li class="col-lg-2 col-md-3 col-sm-4 col-xs-12"><img th:src="@{/images/galeria/01.jpg}"></li>
+				<li class="col-lg-2 col-md-3 col-sm-4 col-xs-12"><img th:src="@{/images/galeria/02.jpg}"></li>
+				<li class="col-lg-2 col-md-3 col-sm-4 col-xs-12"><img th:src="@{/images/galeria/03.jpg}"></li>
+				<li class="col-lg-2 col-md-3 col-sm-4 col-xs-12"><img th:src="@{/images/galeria/04.jpg}"></li>
+				<li class="col-lg-2 col-md-3 col-sm-4 col-xs-12"><img th:src="@{/images/galeria/05.jpg}"></li>
+				<li class="col-lg-2 col-md-3 col-sm-4 col-xs-12"><img th:src="@{/images/galeria/06.jpg}"></li>
+				<li class="col-lg-2 col-md-3 col-sm-4 col-xs-12"><img th:src="@{/images/galeria/07.jpg}"></li>
+				<li class="col-lg-2 col-md-3 col-sm-4 col-xs-12"><img th:src="@{/images/galeria/08.jpg}"></li>
+				<li class="col-lg-2 col-md-3 col-sm-4 col-xs-12"><img th:src="@{/images/galeria/09.jpg}"></li>
+				<li class="col-lg-2 col-md-3 col-sm-4 col-xs-12"><img th:src="@{/images/galeria/10.jpg}"></li>
+				<li class="col-lg-2 col-md-3 col-sm-4 col-xs-12"><img th:src="@{/images/galeria/11.jpg}"></li>
+				<li class="col-lg-2 col-md-3 col-sm-4 col-xs-12"><img th:src="@{/images/galeria/12.jpg}"></li>
+			</ul>
+
+		</div>
+
+		<!--=====================================
+	EFECTO DE SCROLL
+	======================================-->
+
+		<h1 id="inicioScroll" class="row titulos">
+
+			<hr>
+
+			Lista de libros
+
+			<hr>
+
+		</h1>
+
+		<div id="scroll">
+
+			<!-- ARTÍCULO 1	 -->
+
+			<article class="row">
+
+				<div class="col-lg-2 col-md-2 col-sm-1 col-xs-0">
+					<br>
+				</div>
+
+				<aside class="col-lg-8 col-md-8 col-sm-10 col-xs-12">
+
+					<figure class="col-lg-3 col-md-5 col-sm-6 col-xs-12">
+						<a th:href="@{/agregar}">
+							<img th:src="@{/images/galeria/01.jpg}">
+						</a>
+					</figure>
+
+					<div class="col-lg-9 col-md-7 col-sm-6 col-xs-12">
+
+						<h1>El programador pragmatico</h1>
+
+						<p>Es una guía esencial para desarrolladores que desean mejorar su enfoque profesional y técnico
+							en la programación.
+							El libro ofrece consejos prácticos, técnicas y estrategias para escribir código de alta
+							calidad,
+							gestionar proyectos de manera efectiva y adoptar buenas prácticas que aumenten la eficiencia
+							y la adaptabilidad.
+							Ideal para programadores de todos los niveles, fomenta un pensamiento flexible y proactivo
+							para enfrentar los desafíos del desarrollo de software.</p>
+
+					</div>
+
+				</aside>
+
+				<div class="col-lg-2 col-md-2 col-sm-1 col-xs-0">
+					<br>
+				</div>
+
+			</article>
+
+			<!-- ARTÍCULO 2	 -->
+
+			<article class="row">
+
+				<div class="col-lg-2 col-md-2 col-sm-1 col-xs-0">
+					<br>
+				</div>
+
+				<aside class="col-lg-8 col-md-8 col-sm-10 col-xs-12">
+
+					<figure class="col-lg-3 col-md-5 col-sm-6 col-xs-12">
+						<a th:href="@{/agregar}">
+						<img th:src="@{/images/galeria/02.jpg}">
+					</a>
+					</figure>
+
+					<div class="col-lg-9 col-md-7 col-sm-6 col-xs-12">
+
+						<h1>Código limpio</h1>
+
+						<p>Es un libro fundamental para programadores que desean escribir código claro, eficiente y
+							mantenible. Escrito por Robert C. Martin, este libro ofrece principios, prácticas y ejemplos
+							concretos para transformar el código desordenado en código limpio y legible. A través de
+							técnicas de refactorización y una serie de recomendaciones prácticas, "Clean Code" ayuda a
+							los desarrolladores a mejorar la calidad de su código y a construir software robusto y
+							sostenible.</p>
+
+					</div>
+
+				</aside>
+
+				<div class="col-lg-2 col-md-2 col-sm-1 col-xs-0">
+					<br>
+				</div>
+
+			</article>
+
+			<!-- ARTÍCULO 3	 -->
+
+			<article class="row">
+
+				<div class="col-lg-2 col-md-2 col-sm-1 col-xs-0">
+					<br>
+				</div>
+
+				<aside class="col-lg-8 col-md-8 col-sm-10 col-xs-12">
+
+					<figure class="col-lg-3 col-md-5 col-sm-6 col-xs-12">
+						<a th:href="@{/agregar}">
+						<img th:src="@{/images/galeria/03.jpg}">
+					</a>
+					</figure>
+
+					<div class="col-lg-9 col-md-7 col-sm-6 col-xs-12">
+
+						<h1>Diseño de aplicaciones con uso intensivo de datos</h1>
+
+						<p>es una guía exhaustiva escrita por Martin Kleppmann que explora cómo diseñar sistemas
+							escalables y confiables para manejar grandes volúmenes de datos.
+							El libro abarca principios fundamentales y prácticas avanzadas en el diseño de bases de
+							datos, almacenamiento distribuido, procesamiento de datos y consistencia de sistemas.
+							Ideal para ingenieros de software y arquitectos de sistemas, proporciona conocimientos
+							profundos y prácticos para crear aplicaciones robustas y eficientes en entornos de datos
+							intensivos.
+						</p>
+
+					</div>
+
+				</aside>
+
+				<div class="col-lg-2 col-md-2 col-sm-1 col-xs-0">
+					<br>
+				</div>
+
+			</article>
+
+			<!-- ARTÍCULO 4	 -->
+
+			<article class="row">
+
+				<div class="col-lg-2 col-md-2 col-sm-1 col-xs-0">
+					<br>
+				</div>
+
+				<aside class="col-lg-8 col-md-8 col-sm-10 col-xs-12">
+
+					<figure class="col-lg-3 col-md-5 col-sm-6 col-xs-12">
+						<a th:href="@{/agregar}">
+						<img th:src="@{/images/galeria/04.jpg}">
+					</a>
+					</figure>
+
+					<div class="col-lg-9 col-md-7 col-sm-6 col-xs-12">
+
+						<h1>Primero los patrones de diseño</h1>
+
+						<p>Es un libro esencial en la ingeniería de software,
+							escrito por Erich Gamma, Richard Helm, Ralph Johnson y John Vlissides.
+							Publicado en 1994, este texto introduce 23 patrones de diseño que ofrecen soluciones
+							probadas para problemas recurrentes en el desarrollo de software orientado a objetos.
+							Cada patrón incluye detalles sobre su propósito, aplicación y ejemplos prácticos,
+							convirtiéndose en una referencia clave para desarrollar software más flexible,
+							reutilizable y mantenible.
+						</p>
+					</div>
+
+				</aside>
+
+				<div class="col-lg-2 col-md-2 col-sm-1 col-xs-0">
+					<br>
+				</div>
+
+			</article>
+
+
+		</div>
+
+
+
+	</div>
+
+	<script th:src="@{/js/slide.min.js}"></script>
+	<script th:src="@{/js/galeria.js}"></script>
+	<script th:src="@{/js/scroll.js}"></script>
+</body>
+
+</html>

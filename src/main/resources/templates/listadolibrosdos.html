@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Libros</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}" />
+    <link th:href="@{/css/agregar.css}" rel="stylesheet">
+<!--     <link th:href="@{/css/footer.css}" rel="stylesheet"> -->
+    <link th:href="@{/css/paginacion.css}" rel="stylesheet">
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+
+<body>
+    <header th:replace="~{header :: header}"></header>
+    <div class="container">
+        <br />
+        <h1>Libros</h1>
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                <a th:href="@{/listadolibrosdos}" class="btn btn-secondary">Regresar</a>
+                <a th:href="@{/agregarlibro}" class="btn btn-secondary">Agregar Libro</a>
+                <div th:if="${libros != null and !libros.empty}">
+                    <table class="table table-striped">
+                        <thead class="bg-dark text-white">
+                            <tr>
+                                <th>Id</th>
+                                <th>Isbn</th>
+                                <th>Autor</th>
+                                <th>Título</th>
+                                <th>Fecha de Publicación</th>
+                                <th>Categoría</th>
+                                <th>Editorial</th>
+                                <th>Disponible</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="libro : ${libros}">
+                                <td th:text="${libro.id}"></td>
+                                <td th:text="${libro.isbn}"></td>
+                                <td th:text="${libro.autor}"></td>
+                                <td th:text="${libro.titulo}"></td>
+                                <td th:text="${libro.fechaPublicacion}"></td>
+                                <td th:text="${libro.categoria}"></td>
+                                <td th:text="${libro.editorial}"></td>
+                                <td>
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <input type="checkbox" th:checked="${libro.prestado}" disabled />
+                                    </div>
+                                </td>
+                                <td> <a th:href="@{/editarlibro/} + ${libro.id}" class="btn btn-primary" role="button">Editar</a></td>
+                                <td> <a th:href="@{/eliminarlibro/} + ${libro.id}" class="btn btn-danger" role="button">Eliminar</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+					<div class="pagination">
+					    <a th:if="${currentPage > 0}" th:href="@{/listadolibrosdos(page=${currentPage - 1})}" class="btn btn-primary pagination-button">Anterior</a>
+					    <span class="pagination-page" th:text="'Página ' + ${currentPage + 1} + ' de ' + ${totalPages}"></span>
+					    <a th:if="${currentPage < totalPages - 1}" th:href="@{/listadolibrosdos(page=${currentPage + 1})}" class="btn btn-primary pagination-button">Siguiente</a>
+					</div>
+
+                </div>
+                <div th:if="${libros == null or libros.empty}">
+                    <br />
+                    Aún no hay libros en la Biblioteca
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+<!--     <footer th:replace="~{footer :: footer}"></footer> -->
+</body>
+
+<footer th:replace="~{footer :: footer}"></footer>
+
+</html>
